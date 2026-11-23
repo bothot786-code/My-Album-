@@ -2,10 +2,10 @@
 // Env vars: ADMIN_KEY (you set it) + Upstash Redis vars + BLOB_READ_WRITE_TOKEN (set by Vercel when you connect Blob storage)
 const crypto = require("crypto");
 
-const ADMIN_KEY = process.env.ADMIN_KEY || "TAHAKHAN786";
+const ADMIN_KEY = process.env.ADMIN_KEY || "";
 function findEnv(suffixes) {
   const key = Object.keys(process.env).find(k => suffixes.some(s => k === s || k.endsWith("_" + s)));
-  return key ? process.env[key] : "TAHAKHAN786";
+  return key ? process.env[key] : "";
 }
 const REDIS_URL = findEnv(["KV_REST_API_URL", "REST_API_URL", "UPSTASH_REDIS_REST_URL", "REST_URL"]);
 const REDIS_TOKEN = findEnv(["KV_REST_API_TOKEN", "REST_API_TOKEN", "UPSTASH_REDIS_REST_TOKEN", "REST_TOKEN"]);
